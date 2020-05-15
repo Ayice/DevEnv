@@ -7,7 +7,7 @@ var logger = require('morgan')
 const db = require('./db')
 
 db.connect(() => {
-	console.log('connected to DB')
+	console.log('connected ')
 })
 
 var indexRouter = require('./routes/index')
