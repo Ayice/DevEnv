@@ -7,7 +7,7 @@ exports.connect = function (done) {
 
 	MongoClient.connect('mongodb+srv://group:group123@devenv-swzwi.mongodb.net/test?retryWrites=true&w=majority', { useUnifiedTopology: true })
 		.then((client) => {
-			state.db = client.db('notes')
+			state.db = client.db('devenv')
 			done()
 		})
 		.catch((err) => console.log(err))
