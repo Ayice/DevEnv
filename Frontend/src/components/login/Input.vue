@@ -1,14 +1,16 @@
 <template>
-  <div class="hello">
-    {{ msg }}
+  <div class="field">
+    <div class="control">
+      <input class="input">
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "Input",
   props: {
-    msg: String
+
   }
 };
 </script>

@@ -5,10 +5,10 @@
     </div>
 </template>
 <script>
-import Header from 'sti til header komponent'
+//import Header from 'sti til header komponent'
 export default {
     components: {
-        Header
+        //Header
     }
 }
 </script>
