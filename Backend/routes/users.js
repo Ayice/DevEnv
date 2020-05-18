@@ -12,7 +12,17 @@ router.get('/', function(req, res, next) {
         console.log(result);
 	});
 });
+/* POST user to db */
+router.post('/', function(req, res, next) {
+	var collection = db.get().collection('users');
 
-module.exports = router
+	collection.insertOne({ name: req.body.name}, (err, result) => {
+		if (err) throw err;
+		res.send('User saved to db');
+		console.log('User saved to db');
+	})
+
+});
+
 
 module.exports = router;
