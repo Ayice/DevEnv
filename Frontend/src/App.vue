@@ -5,7 +5,12 @@
     </div>
 </template>
 <script>
-export default {}
+import Header from 'sti til header komponent'
+export default {
+    components: {
+        Header
+    }
+}
 </script>
 <style lang="scss">
 #app {
