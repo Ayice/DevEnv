@@ -1,15 +1,22 @@
 <template>
   <div class="home">
-    <div class="columns">
-      <div class="column">this is your home page</div>
-      <div class="column">this is another column</div>
-    </div>
+    <img alt="COVID-19 logo" src="../assets/covid-logo.png" class="is-centered" />
+    <LoginForm />
+    <Button btntext="Opret Bruger" class="is-primary" />
   </div>
 </template>
 
 <script>
 	// @ is an alias to /src
+
+	import LoginForm from '@/components/login/LoginForm.vue'
+	import Button from '@/components/login/Button.vue'
+
 	export default {
 		name: 'Home',
+		components: {
+			LoginForm,
+			Button,
+		},
 	}
 </script>
