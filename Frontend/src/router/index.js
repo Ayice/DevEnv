@@ -19,6 +19,15 @@ const routes = [
         component: () =>
             import(/* webpackChunkName: "about" */ '../views/About.vue'),
     },
+
+    {
+        path: '/hovedkategorier',
+        name: 'hovedkategoriContainer',
+        component: () =>
+            import(
+                /* webpackChunkName: "hovedkategoriContainer" */ '../views/HovedkategoriContainer.vue'
+            ),
+    },
 ]
 
 const router = new VueRouter({
