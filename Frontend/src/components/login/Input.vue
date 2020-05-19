@@ -1,7 +1,7 @@
 <template>
   <div class="field">
     <div class="control">
-      <input class="input">
+      <input class="input" :placeholder="placeholderValue" :type="typeValue">
     </div>
   </div>
 </template>
@@ -10,7 +10,8 @@
 export default {
   name: "Input",
   props: {
-
+    placeholderValue: String,
+    typeValue: String
   }
 };
 </script>
