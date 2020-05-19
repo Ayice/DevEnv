@@ -1,12 +1,16 @@
 <template>
-  <a :href="emne.id" class="emne">{{emne.title}}</a>
+  <div :href="emne.id" class="emne">
+    {{emne.title}}
+    <input type="radio" name="radiobutton"> 
+
+  </div>
 </template>
 
 <script>
 	export default {
 		name: 'Emner',
 		props: {
-			kategori: {
+			emne: {
 				title: {
 					type: String,
 					required: true,
@@ -22,11 +26,10 @@
 
 <style lang="scss">
 	.emne {
-		font-weight: 600;
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		height: 100px;
+        justify-content: space-between;
+        padding: 0.50em;
 		background-color: rgba(113, 184, 188, 0.452);
 		color: #ffffff;
 		width: 100%;
