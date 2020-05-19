@@ -2,42 +2,40 @@
   <section class="section">
     <div class="columns">
       <div class="column has-text-centered">
-        <h1 class="title is-2">Hovedkategorier</h1>
-        <h2
-          class="subtitle is-6"
-        >Tryk på en hovedkategori og tilvælg emner du ønsker at få nyheder om</h2>
+        <h1 class="title is-2">Kategori titel</h1>
+        <h2 class="subtitle is-6">Tilvælg emner du ønsker at modtage nyheder omkring</h2>
       </div>
     </div>
 
-    <section class="hovedkategori__container columns is-mobile is-multiline is-1">
-      <div class="column is-6" v-for="kategori in Liste" :key="kategori.id">
-        <Hovedkategori :kategori="kategori" />
+    <section class="emner-container columns is-mobile is-multiline is-1">
+      <div class="column is-12" v-for="emne in Liste" :key="emne.id">
+        <Emner :emne="emne" />
       </div>
     </section>
   </section>
 </template>
 
 <script>
-	import Hovedkategori from '../components/Hovedkategori'
+	import Emner from '../components/Emner'
 	export default {
-		name: 'HovedkategoriContainer',
+		name: 'EmnerContainer',
 		components: {
-			Hovedkategori,
+			Emner,
 		},
 		data() {
 			return {
 				Liste: [
 					{
-						title: 'kategori 1',
-						id: '1235dfsa',
+						title: 'emne 1',
+						id: '1235dfsa21243',
 					},
 					{
-						title: 'kategori 2',
-						id: '1235dfsa21231',
+						title: 'emne 2',
+						id: '1235dfsa21265',
 					},
 					{
-						title: 'kategori 3',
-						id: '1235f123423r',
+						title: 'emne 3',
+						id: '1235dfsa21274',
 					},
 				],
 			}
@@ -46,7 +44,7 @@
 </script>
 
 <style lang="scss">
-	.hovedkategori__container {
+	.emner-container {
 		width: 90%;
 		background-color: #355a93;
 		margin: auto;

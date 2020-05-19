@@ -1,10 +1,10 @@
 <template>
-  <a :href="kategori.id" class="kategori">{{kategori.title}}</a>
+  <a :href="emne.id" class="emne">{{emne.title}}</a>
 </template>
 
 <script>
 	export default {
-		name: 'Hovedkategori',
+		name: 'Emner',
 		props: {
 			kategori: {
 				title: {
@@ -21,7 +21,7 @@
 </script>
 
 <style lang="scss">
-	.kategori {
+	.emne {
 		font-weight: 600;
 		display: flex;
 		align-items: center;

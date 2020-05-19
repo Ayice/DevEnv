@@ -28,6 +28,14 @@ const routes = [
                 /* webpackChunkName: "hovedkategoriContainer" */ '../views/HovedkategoriContainer.vue'
             ),
     },
+    {
+        path: '/hovedkategorier/emne/',
+        name: 'EmnerContainer',
+        component: () =>
+            import(
+                /* webpackChunkName: "hovedkategoriContainer" */ '../views/EmnerContainer.vue'
+            ),
+    }
 ]
 
 const router = new VueRouter({
