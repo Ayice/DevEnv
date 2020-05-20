@@ -42,6 +42,23 @@
 				],
 			}
 		},
+		// methods: {
+		// 	fetchmeBitch() {
+		// 		fetch(
+		// 			// 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.beredskabsinfo.dk%2Fsektion%2Fpoliti%2Ffeed%2F'
+		// 			'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.ssi.dk%2Frss'
+		// 		)
+		// 			.then(response => {
+		// 				return response.json()
+		// 			})
+		// 			.then(response => {
+		// 				console.log(response)
+		// 			})
+		// 	},
+		// },
+		// mounted() {
+		// 	this.fetchmeBitch()
+		// },
 	}
 </script>
 
