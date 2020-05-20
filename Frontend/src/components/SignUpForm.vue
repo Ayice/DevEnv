@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-centered">
+  <div class="form-wrapper columns is-centered">
     <form action="" class="form-container column is-one-quarter box">
       <h2 class="is-size-3 has-text-white">Opret Bruger</h2>
         <Input placeholderValue="Fornavn"/>
@@ -12,7 +12,7 @@
         <Input placeholderValue="Adgangskode" typeValue="password"/>
         <Input placeholderValue="Gentag Adgangskode" typeValue="password"/>
         
-          <div class="button-grp field is-grouped">
+          <div class="button-grp field">
             <div class="control">
               <Button btntext="Annullér" class="is-light"/> 
             </div>
@@ -44,17 +44,26 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 h2 {
   margin-bottom: 5%;
 }
+.form-wrapper {
+  
+    display: flex;
+    align-items: center;
+    height: 95vh;
+    padding: 5%;
+
+}
 .form-container {
-  position: absolute;
-  bottom: 25%;
   padding: 2.5%;
   background-color: #355A93;
+}
 
 .button-grp {
+  display: flex;
   justify-content: space-between;
 }
-}
+
 </style>
