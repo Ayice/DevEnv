@@ -1,5 +1,5 @@
 <template>
-  <a :href="kategori.id" class="kategori">{{kategori.title}}</a>
+  <router-link :to="kategori.id" class="kategori" tag="button">{{kategori.title}}</router-link>
 </template>
 
 <script>
