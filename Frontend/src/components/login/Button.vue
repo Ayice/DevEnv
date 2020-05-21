@@ -15,6 +15,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 	button {
-		min-width: 175px;
+		width: fit-content;
+		padding: 0 2em;
 	}
 </style>
