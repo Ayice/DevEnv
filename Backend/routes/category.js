@@ -6,35 +6,44 @@ var mongodb = require('mongodb')
 /* GET category listing. */
 router.get('/', function (req, res, next) {
 	db.connect((err, result) => {
-		if (err) {
-			return
-		} else {
-			var collection = db.get().collection('hovedkategori')
-			collection
-				.find()
-				.toArray()
-				.then((result) => {
-					res.status(200).json({
-						status: 'success',
-						result: result,
-					})
+		if (err) throw err
+
+		var collection = db.get().collection('hovedkategori')
+		collection
+			.find()
+			.toArray()
+			.then((result) => {
+				res.status(200).json({
+					status: 'success',
+					result: result,
 				})
-		}
+			})
 	})
 })
 
-// router.post('/', (req, res, next) => {
-// 	db.connect((err, result) => {
-// 		if (err) {
-// 			res.status(500).json({
-// 				status: 'Error',
-// 				msg: 'We cannot connect to db...',
-// 			})
-// 		} else {
-// 			let collection = db.get().collection('hovedkategori')
-// 			collection.insertOne(...req.body.data)
-// 		}
-// 	})
-// })
+/**
+ * Create new Hovedkategori
+ * Brug postman
+ */
+router.post('/', (req, res) => {
+	db.connect((err, result) => {
+		if (err) throw err
+		db.get()
+			.collection('hovedkategori')
+			.insertOne({ ...req.body })
+			.then(() => {
+				res.json({
+					status: 'Success',
+					msg: 'The Category is inserted!',
+				})
+			})
+			.catch((err) => {
+				res.json({
+					status: 'Error',
+					msg: 'There was a problem',
+				})
+			})
+	})
+})
 
 module.exports = router
