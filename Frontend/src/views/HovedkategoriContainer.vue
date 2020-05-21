@@ -56,7 +56,7 @@
 		},
 		mounted() {
 			this.fetchCategories()
-			this.fetchNews()
+			// this.fetchNews()
 		},
 	}
 </script>
