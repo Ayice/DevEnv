@@ -15,7 +15,6 @@ router.get('/', function(req, res, next) {
 /* POST user to db */
 router.post('/', function(req, res, next) {
 	var collection = db.get().collection('users');
-
 	collection.insertOne({ name: req.body.name}, (err, result) => {
 		if (err) throw err;
 		res.send('User saved to db');
@@ -24,5 +23,5 @@ router.post('/', function(req, res, next) {
 
 });
 
-
+/* Iza prøver at lave login funktion  */
 module.exports = router;
