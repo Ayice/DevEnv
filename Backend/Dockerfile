@@ -1,7 +1,7 @@
 FROM node
 
 ENV NODE_ENV=production
-ENV PORT=3000
+ENV PORT=5000
 
 COPY . /var/www
 WORKDIR /var/www
