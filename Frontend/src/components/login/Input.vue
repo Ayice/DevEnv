@@ -1,30 +1,19 @@
 <template>
   <div class="field">
     <div class="control">
-<<<<<<< HEAD
-      <input class="input" :placeholder="placeholderValue" :type="typeValue">
-=======
-      <input class="input" />
->>>>>>> login
+      <input class="input" :placeholder="placeholderValue" :type="typeValue" />
     </div>
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-export default {
-  name: "Input",
-  props: {
-    placeholderValue: String,
-    typeValue: String
-  }
-};
-=======
 	export default {
 		name: 'Input',
-		props: {},
+		props: {
+			placeholderValue: String,
+			typeValue: String,
+		},
 	}
->>>>>>> login
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
