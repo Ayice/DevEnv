@@ -97,6 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         a {
             color: #fff;
+            
+            &:hover{ 
+                background-color: #355a93;}
         }
         a.button {
             color: #355a93;
