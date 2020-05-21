@@ -2,10 +2,7 @@
   <div class="home">
     <img alt="COVID-19 logo" src="../assets/covid-logo.png" class="is-centered" />
     <LoginForm />
-<<<<<<< HEAD
     <Button btntext="Opret Bruger" link="/signup" class="is-primary" />
-=======
->>>>>>> login
   </div>
 </template>
 
