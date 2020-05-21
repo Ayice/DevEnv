@@ -7,7 +7,7 @@
 
         <div class="field is-grouped is-grouped-centered">
           <div class="control">
-            <Button btntext="Log Ind" class="is-primary is-normal" />
+            <Button btntext="Log Ind"  link="/login" class="is-primary is-normal" />
           </div>
           <div class="control"></div>
         </div>
