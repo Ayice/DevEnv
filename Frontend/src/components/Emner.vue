@@ -1,5 +1,5 @@
 <template>
-  <div :href="emne.id" class="emne">
+  <div class="emne">
     {{emne.title}}
     <input type="radio" name="radiobutton"> 
 
