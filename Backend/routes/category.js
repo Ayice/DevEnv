@@ -46,4 +46,27 @@ router.post('/', (req, res) => {
 	})
 })
 
+router.get('/:id', (req, res) => {
+	db.connect((err, result) => {
+		if (err) throw err
+		db.get()
+			.collection('emner')
+			.find({ kategori: req.params.id })
+			.toArray()
+			.then((result) => {
+				res.json({
+					status: 'Success',
+					msg: 'Fetched Data',
+					data: result,
+				})
+			})
+			.catch((err) => {
+				res.json({
+					status: 'Error',
+					msg: 'There was a problem',
+				})
+			})
+	})
+})
+
 module.exports = router
