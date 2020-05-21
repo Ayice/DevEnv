@@ -3,7 +3,12 @@ var router = express.Router()
 var db = require('../db')
 var mongodb = require('mongodb')
 
-/* GET category listing. */
+/*
+ *
+ * Hent all kategorier
+ *
+ */
+
 router.get('/', function (req, res, next) {
 	db.connect((err, result) => {
 		if (err) throw err
@@ -21,9 +26,11 @@ router.get('/', function (req, res, next) {
 	})
 })
 
-/**
+/*
+ *
  * Create new Hovedkategori
  * Brug postman
+ *
  */
 router.post('/', (req, res) => {
 	db.connect((err, result) => {
@@ -46,6 +53,11 @@ router.post('/', (req, res) => {
 	})
 })
 
+/**
+ *
+ * Hent en specifik kategori's emner
+ *
+ */
 router.get('/:id', (req, res) => {
 	db.connect((err, result) => {
 		if (err) throw err
