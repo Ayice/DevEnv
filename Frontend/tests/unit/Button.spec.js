@@ -14,7 +14,7 @@ import Button from '@/components/login/Button.vue'
 // })
 
 describe('Button', () => {
-  it('renders props.btntext when passed', () => {
+  it('Should render props.btntext when passed', () => {
     const btntext = 'click me'
     const wrapper = shallowMount(Button, {
       propsData: { btntext },
