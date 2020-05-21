@@ -3,16 +3,8 @@ var express = require('express')
 var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
-
-const db = require('./db')
-
-db.connect(() => {
-	console.log('connected to this shit')
-})
-
-var indexRouter = require('./routes/index')
-var usersRouter = require('./routes/users')
-var categoryRouter = require('./routes/category')
+const passport = require("passport");
+const session = require("express-session");
 
 var app = express()
 
@@ -25,6 +17,31 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+
+
+//Initialize session with some options
+app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: false,
+    expires: new Date(Date.now() + 3600000)
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+require('./middleware/authentication')(passport);
+
+const db = require('./db')
+
+db.connect(() => {
+	console.log('connected to this shit')
+})
+
+var indexRouter = require('./routes/index')
+var usersRouter = require('./routes/users')
+var categoryRouter = require('./routes/category')
+
+
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)

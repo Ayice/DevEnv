@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
 // Authenticate the user when logging in
 router.post("/login", (req, res, next) => {
     passport.authenticate("local", {
-        successRedirect: "/dashboard",
+        successRedirect: "/category",
         failedRedirect: "/login"
     })(req, res, next);
 });
@@ -41,8 +41,6 @@ router.get("/hovedkategori", userIsLoggedIn, async (req, res) => {
 
     
 });
-
-
 
 // Log out the user when pressing the log out link in the header
 router.get('/logout', (req, res) => {

@@ -1,12 +1,19 @@
-const LocalStrategy = require('passport').Strategy;
-// const User = require('../models/User'); Hvordan finder vi user i mongo?
+var db = require('../db');
+var mongodb = require('mongodb');
+
+// const LocalStrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local');
+// const User = db.get().collection('users');
+
 
 module.exports = function(passport) {
     passport.use(
         // Authenticate the user
         new LocalStrategy((username, password, done) => {
-            User.findOne({username: username})
+            db.connect((err, result) => {if (err) return err})
+            db.get().collection('users').findOne({username: username})
                 .then((user) => {
+                    console.log('er du dum eller hvad')
                     if (!user) {
                         return done(null, false, { error: 'User does not excist' });
                     }
@@ -15,7 +22,7 @@ module.exports = function(passport) {
                         return done(null, false, { error: 'The password is not correct' });
                     }
                     console.log("User is logged in");
-
+                    console.log(user);
                     return done(null, user);
                 })
                 .catch((err) => console.log(err));
@@ -23,11 +30,13 @@ module.exports = function(passport) {
     );
     // Give userID to cookie
     passport.serializeUser((user, done) => {
-        done(null, user.id);
+        console.log(user);
+        done(null, user._id);
     });
     // Deserialize user when loggin out
     passport.deserializeUser((id, done) => {
-        User.findById(id, (err, user) => {
+        db.connect((err, result) => {if (err) return err})
+        db.get().collection('users').find({_id: id}, (err, user) => {
             done(err, user);
         });
     });
