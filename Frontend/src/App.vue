@@ -36,9 +36,6 @@
 <style lang="scss">
 	.app {
 		min-height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 	#content-wrap {
 		padding-bottom: 2.5rem;
