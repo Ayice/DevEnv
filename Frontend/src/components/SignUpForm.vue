@@ -12,8 +12,9 @@
                 name="firstname"
                 required
                 placeholder="Fornavn"
-                v-model="user.firstName"
                 class="input"
+                v-model="user.firstName"
+                pattern="[A-Za-z]{1,32}"
               />
             </div>
           </div>
@@ -28,6 +29,7 @@
                 placeholder="Efternavn"
                 v-model="user.lastName"
                 class="input"
+                pattern="[A-Za-z]{1,32}"
               />
             </div>
           </div>
@@ -56,6 +58,7 @@
                 placeholder="Postnummer"
                 v-model="user.zipCode"
                 class="input"
+                pattern="^[0-9]{1,4}$"
               />
             </div>
           </div>
