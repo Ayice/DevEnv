@@ -2,12 +2,23 @@
   <section>
     <div class="columns is-centered is-mobile">
       <form action class="form-container is-10 column box">
-        <Input />
-        <Input class />
+        <div class="field">
+          <label for="username">Username</label>
+          <div class="control">
+            <input name="username" type="text" required placeholder="Username" class="input" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="control">
+            <input name="password" type="password" required placeholder="Password" class="input" />
+          </div>
+        </div>
 
         <div class="field is-grouped is-grouped-centered">
           <div class="control">
-            <Button btntext="Log Ind" link="/login" class="is-primary is-normal" />
+            <button to="/login" class="button is-primary is-normal">Login</button>
           </div>
           <div class="control"></div>
         </div>
@@ -16,23 +27,19 @@
 
     <div class="login-options columns is-mobile is-centered">
       <div class="column is-5">
-        <Button btntext="Opret Bruger" class="is-primary" />
+        <router-link to="/signup" class="button is-primary">Opret Bruger</router-link>
       </div>
 
       <div class="column is-5">
-        <Button btntext="Fortsæt Som Gæst" class="is-primary is-light" />
+        <button class="button is-primary is-light">Fortsæt Som Gæst</button>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-
 	export default {
 		name: 'LoginForm',
-		components: {
-		},
-		props: {},
 	}
 </script>
 
