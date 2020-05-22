@@ -165,7 +165,7 @@
 		},
 		methods: {
 			signupUser(data) {
-				fetch('http://localhost:3000/users', {
+				fetch(process.env.VUE_APP_API_URL + 'users', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
