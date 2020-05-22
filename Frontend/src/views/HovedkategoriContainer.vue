@@ -10,7 +10,7 @@
     </div>
 
     <section class="hovedkategori__container columns is-mobile is-multiline is-1">
-      <div class="column is-6" v-for="kategori in Liste" :key="kategori.id">
+      <div class="column is-6" v-for="kategori in categories" :key="kategori.id">
         <Hovedkategori :kategori="kategori" />
       </div>
     </section>
@@ -18,7 +18,8 @@
 </template>
 
 <script>
-	import Hovedkategori from '../components/Hovedkategori'
+	import Hovedkategori from '@/components/Hovedkategori'
+
 	export default {
 		name: 'HovedkategoriContainer',
 		components: {
@@ -26,39 +27,37 @@
 		},
 		data() {
 			return {
-				Liste: [
-					{
-						title: 'kategori 1',
-						id: '1235dfsa',
-					},
-					{
-						title: 'kategori 2',
-						id: '1235dfsa21231',
-					},
-					{
-						title: 'kategori 3',
-						id: '1235f123423r',
-					},
-				],
+				newsList: Array,
+				categories: Array,
 			}
 		},
-		// methods: {
-		// 	fetchmeBitch() {
-		// 		fetch(
-		// 			// 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.beredskabsinfo.dk%2Fsektion%2Fpoliti%2Ffeed%2F'
-		// 			'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.ssi.dk%2Frss'
-		// 		)
-		// 			.then(response => {
-		// 				return response.json()
-		// 			})
-		// 			.then(response => {
-		// 				console.log(response)
-		// 			})
-		// 	},
-		// },
-		// mounted() {
-		// 	this.fetchmeBitch()
-		// },
+		methods: {
+			fetchNews() {
+				fetch(
+					// 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.beredskabsinfo.dk%2Fsektion%2Fpoliti%2Ffeed%2F'
+					'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.ssi.dk%2Frss'
+				)
+					.then(response => {
+						return response.json()
+					})
+					.then(response => {
+						this.newsList = response.items
+						console.log(response)
+					})
+			},
+
+			fetchCategories() {
+				fetch('http://localhost:3000/category')
+					.then(response => response.json())
+					.then(response => {
+						this.categories = response.result
+					})
+			},
+		},
+		mounted() {
+			this.fetchCategories()
+			// this.fetchNews()
+		},
 	}
 </script>
 
@@ -67,5 +66,8 @@
 		width: 90%;
 		background-color: #355a93;
 		margin: auto;
+		min-height: 50vh;
+		max-height: 55vh;
+		overflow-y: auto;
 	}
 </style>

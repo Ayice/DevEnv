@@ -2,7 +2,7 @@
     <div class="header navbar is-fixed-top">
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item" href="/">
+                <router-link class="navbar-item" to="/home">
                     <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
                     <svg
                         width="25"
@@ -18,7 +18,7 @@
                     </svg>
 
                     <span>COVID-19 INFORMATIONSCENTER</span>
-                </a>
+                </router-link>
 
                 <a
                     role="button"
@@ -97,6 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         a {
             color: #fff;
+            
+            &:hover{ 
+                background-color: #355a93;}
         }
         a.button {
             color: #355a93;
