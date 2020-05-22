@@ -1,15 +1,15 @@
 <template>
-  <div class="columns is-centered">
-    <form action class="form-container column is-one-quarter box">
-      <Input />
-      <Input class />
+  <div class="columns is-mobile is-centered">
+    <form action class="form-container column is-three-quarters box">
+      <input />
+      <input />
 
-      <div class="field is-grouped is-grouped-centered">
+      <div class="login-form-btns field is-grouped is-grouped-centered">
         <div class="control">
-          <Button btntext="Log Ind" class="is-primary is-normal" />
+          <button class="is-primary is-normal">Login</button>
         </div>
         <div class="control">
-          <Button btntext="Fortsæt Som Gæst" link="/about" class="is-primary is-light" />
+          <button link="/about" class="is-primary is-light">Fortsæt Som Gæst</button>
         </div>
       </div>
     </form>
@@ -17,14 +17,10 @@
 </template>
 
 <script>
-	import Button from '@/components/login/Button.vue'
-	import Input from '@/components/login/Input.vue'
 
 	export default {
 		name: 'LoginForm',
 		components: {
-			Button: Button,
-			Input: Input,
 		},
 		props: {},
 	}
