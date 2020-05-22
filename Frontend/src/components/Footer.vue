@@ -12,7 +12,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-	#footer {
+	.footer {
 		background-color: #355a93;
 		width: 100%;
 		height: 10vh;
