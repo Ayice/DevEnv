@@ -13,6 +13,8 @@ db.connect(() => {
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
 var categoryRouter = require('./routes/category')
+const passport = require('passport')
+const session = require('express-session')
 
 var app = express()
 
@@ -26,6 +28,19 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')))
+require('./middleware/authentication')(passport)
+app.use(passport.initialize())
+app.use(passport.session())
+
+//Initialize session with some options
+app.use(
+	session({
+		secret: 'secret',
+		resave: false,
+		saveUninitialized: false,
+		expires: new Date(Date.now() + 3600000),
+	})
+)
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)

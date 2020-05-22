@@ -1,19 +1,29 @@
 <template>
-  <div class="columns is-centered">
-    <form action class="form-container column is-one-quarter box">
-      <Input />
-      <Input class />
+  <section>
+    <div class="columns is-centered is-mobile">
+      <form action class="form-container is-10 column box">
+        <Input />
+        <Input class />
 
-      <div class="field is-grouped is-grouped-centered">
-        <div class="control">
-          <Button btntext="Log Ind" class="is-primary is-normal" />
+        <div class="field is-grouped is-grouped-centered">
+          <div class="control">
+            <Button btntext="Log Ind" link="/login" class="is-primary is-normal" />
+          </div>
+          <div class="control"></div>
         </div>
-        <div class="control">
-          <Button btntext="Fortsæt Som Gæst" link="/about" class="is-primary is-light" />
-        </div>
+      </form>
+    </div>
+
+    <div class="login-options columns is-mobile is-centered">
+      <div class="column is-5">
+        <Button btntext="Opret Bruger" class="is-primary" />
       </div>
-    </form>
-  </div>
+
+      <div class="column is-5">
+        <Button btntext="Fortsæt Som Gæst" class="is-primary is-light" />
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -31,19 +41,4 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-	h3 {
-		margin: 40px 0 0;
-	}
-	ul {
-		list-style-type: none;
-		padding: 0;
-	}
-	li {
-		display: inline-block;
-		margin: 0 10px;
-	}
-	a {
-		color: #42b983;
-	}
-</style>
+<style scoped lang="scss"></style>
