@@ -22,21 +22,31 @@ router.get('/', function (req, res, next) {
 /* POST user to db */
 router.post('/', function (req, res, next) {
 	var collection = db.get().collection('users')
-
-	collection.insertOne({ 
-		firstName: req.body.firstName,
-		lastName: req.body.lastName,
-		address: req.body.address,
-		zipCode: req.body.zipCode,
-		city: req.body.city,
-		email: req.body.email,
-		username: req.body.username,
-		password: req.body.password
-		}, (err, result) => {
-		if (err) throw err;
-		res.send('User saved to db');
-		console.log('User saved to db');
-	})
+	collection.insertOne(
+		{
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			address: req.body.address,
+			zipCode: req.body.zipCode,
+			city: req.body.city,
+			email: req.body.email,
+			username: req.body.username,
+			password: req.body.password,
+		},
+		(err, result) => {
+			if (err) {
+				res.status(500).json({
+					status: 'Error',
+					msg: 'There was a problem with the server',
+				})
+			} else {
+				res.status(200).json({
+					status: 'Success',
+					msg: 'User saved to db',
+				})
+			}
+		}
+	)
 })
 
 /* Iza prøver at lave login funktion  */
