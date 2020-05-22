@@ -27,14 +27,10 @@
 </template>
 
 <script>
-	import Button from '@/components/login/Button.vue'
-	import Input from '@/components/login/Input.vue'
 
 	export default {
 		name: 'LoginForm',
 		components: {
-			Button: Button,
-			Input: Input,
 		},
 		props: {},
 	}

@@ -1,7 +1,8 @@
 <template>
-  <div class="home">
+  <div class="home columns is-centered">
     <img alt="COVID-19 logo" src="../assets/covid-logo.png" class="is-centered" />
     <LoginForm />
+    <button link="/signup" class="is-primary">Opret Bruger</button>
   </div>
 </template>
 

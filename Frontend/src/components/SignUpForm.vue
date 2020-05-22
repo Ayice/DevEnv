@@ -1,23 +1,23 @@
 <template>
-  <div class="columns is-centered">
-    <form action="" class="form-container column is-one-quarter box">
+  <div class="form-wrapper columns is-centered">
+    <form class="form-container column is-one-quarter box" @submit.prevent="postNiggasToAPI()">
       <h2 class="is-size-3 has-text-white">Opret Bruger</h2>
-        <Input placeholderValue="Fornavn"/>
-        <Input placeholderValue="Efternavn"/>
-        <Input placeholderValue="Adresse"/>
-        <Input class="is-half" placeholderValue="Postnummer"/>
-        <Input class="is-half" placeholderValue="By"/>
-        <Input placeholderValue="E-mail" typeValue="email"/>
-        <Input placeholderValue="Brugernavn"/>
-        <Input placeholderValue="Adgangskode" typeValue="password"/>
-        <Input placeholderValue="Gentag Adgangskode" typeValue="password"/>
+        <input type="text" required placeholder="Fornavn" v-model="user.firstName"/>
+        <input type="text" required placeholder="Efternavn" v-model="user.lastName"/>
+        <input type="text" required placeholder="Adresse" v-model="user.address"/>
+        <input type="number" required placeholder="Postnummer" v-model="user.zipCode"/>
+        <input type="text" required placeholder="By" v-model="user.city"/>
+        <input type="email" required placeholder="E-mail" v-model="user.email"/>
+        <input type="text" required placeholder="Brugernavn" v-model="user.username"/>
+        <input type="password" required placeholder="Adgangskode" v-model="user.password"/>
+        <input type="password" required placeholder="Gentag Adgangskode"/>
         
-          <div class="button-grp field is-grouped">
+          <div class="button-grp field">
             <div class="control">
-              <Button btntext="Annullér" class="is-light"/> 
+              <button class="is-light">Annullér</button> 
             </div>
             <div class="control">
-              <Button btntext="Gem" class="is-primary is-normal"/>
+              <button type="submit">Gem</button>
             </div>
             
           </div>
@@ -27,34 +27,75 @@
 </template>
 
 <script>
-import Button from '@/components/login/Button.vue'
-import Input from '@/components/login/Input.vue'
+
 
 export default {
   name: "SignUpForm",
   components: {
-    'Button': Button,
-    'Input': Input
+
   },
   props: {
    
-  }
+  },
+  data() {
+    return {
+      user: {
+        firstName: null,
+        lastName: null,
+        address: null,
+        zipCode: null,
+        city: null,
+        email: null,
+        username: null,
+        password: null
+      }
+    }
+  },
+  methods: {
+
+
+    postNiggasToAPI() {
+      fetch('http://localhost:3000/users', {
+       method: 'POST',
+       headers: {
+    'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.user),
+  })
+  .then(function (data) {
+    console.log('Request succeeded with JSON response', data);
+  })
+  .catch(function (error) {
+    console.log('Request failed', error);
+  });
+    }
+	},
+  
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 h2 {
   margin-bottom: 5%;
 }
+.form-wrapper {
+  
+    display: flex;
+    align-items: center;
+    height: 95vh;
+    padding: 5%;
+
+}
 .form-container {
-  position: absolute;
-  bottom: 25%;
   padding: 2.5%;
   background-color: #355A93;
+}
 
 .button-grp {
+  display: flex;
   justify-content: space-between;
 }
-}
+
 </style>
