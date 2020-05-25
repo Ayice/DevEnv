@@ -1,8 +1,7 @@
 var db = require('../db')
 var mongodb = require('mongodb')
-
 // const LocalStrategy = require('passport-local').Strategy;
-const LocalStrategy = require('passport-local')
+const LocalStrategy = require('passport-local').Strategy
 // const User = db.get().collection('users');
 
 module.exports = function (passport) {
@@ -30,13 +29,16 @@ module.exports = function (passport) {
 				.catch(err => console.log(err))
 		})
 	)
+
 	// Give userID to cookie
 	passport.serializeUser((user, done) => {
-		console.log(user)
+		console.log('serializing user!', user)
 		done(null, user._id)
 	})
+
 	// Deserialize user when loggin out
 	passport.deserializeUser((id, done) => {
+		console.log('Deserializing user', id)
 		db.connect((err, result) => {
 			if (err) return err
 		})
