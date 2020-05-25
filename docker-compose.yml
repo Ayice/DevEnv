@@ -1,15 +1,16 @@
 version: '3'
 
-services: 
+services:
   api:
     build: Backend
     restart: always
-    volumes: 
+    volumes:
       - ./Backend/bin/www
-    ports: 
+    ports:
       - 3000:3000
 
   client:
     build: Frontend
     restart: always
-    volumes: 
+    ports:
+      - 8080:8080
