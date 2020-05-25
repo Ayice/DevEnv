@@ -1,6 +1,6 @@
 <template>
   <div class="columns is-centered">
-    <form action class="form-container column is-one-quarter box">
+    <form class="form-container column is-one-quarter box">
       <Input />
       <Input class />
 
