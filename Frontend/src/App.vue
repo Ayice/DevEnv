@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app" id="app">
     <Header />
     <div id="content-wrap">
       <router-view />
@@ -34,6 +34,9 @@
 	}
 </script>
 <style lang="scss">
+	.app {
+		min-height: 100vh;
+	}
 	#content-wrap {
 		padding-bottom: 2.5rem;
 	}

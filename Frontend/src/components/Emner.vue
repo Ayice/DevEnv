@@ -1,8 +1,7 @@
 <template>
   <div class="emne">
     {{emne.title}}
-    <input type="radio" name="radiobutton"> 
-
+    <input type="radio" name="radiobutton" />
   </div>
 </template>
 
@@ -28,8 +27,8 @@
 	.emne {
 		display: flex;
 		align-items: center;
-        justify-content: space-between;
-        padding: 0.50em;
+		justify-content: space-between;
+		padding: 0.5em;
 		background-color: rgba(113, 184, 188, 0.452);
 		color: #ffffff;
 		width: 100%;

@@ -1,49 +1,54 @@
 <template>
+<<<<<<< HEAD
   <div class="columns is-centered">
     <form class="form-container column is-one-quarter box">
       <Input />
       <Input class />
+=======
+  <section>
+    <div class="columns is-centered is-mobile">
+      <form action class="form-container is-10 column box">
+        <div class="field">
+          <label for="username">Username</label>
+          <div class="control">
+            <input name="username" type="text" required placeholder="Username" class="input" />
+          </div>
+        </div>
+>>>>>>> ab1f6e45920e368bb43a08acd21dc7e37e1b3033
 
-      <div class="field is-grouped is-grouped-centered">
-        <div class="control">
-          <Button btntext="Log Ind" class="is-primary is-normal" />
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="control">
+            <input name="password" type="password" required placeholder="Password" class="input" />
+          </div>
         </div>
-        <div class="control">
-          <Button btntext="Fortsæt Som Gæst" link="/about" class="is-primary is-light" />
+
+        <div class="field is-grouped is-grouped-centered">
+          <div class="control">
+            <button to="/login" class="button is-primary is-normal">Login</button>
+          </div>
+          <div class="control"></div>
         </div>
+      </form>
+    </div>
+
+    <div class="login-options columns is-mobile is-centered">
+      <div class="column is-5">
+        <router-link to="/signup" class="button is-primary">Opret Bruger</router-link>
       </div>
-    </form>
-  </div>
+
+      <div class="column is-5">
+        <button class="button is-primary is-light">Fortsæt Som Gæst</button>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-	import Button from '@/components/login/Button.vue'
-	import Input from '@/components/login/Input.vue'
-
 	export default {
 		name: 'LoginForm',
-		components: {
-			Button: Button,
-			Input: Input,
-		},
-		props: {},
 	}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-	h3 {
-		margin: 40px 0 0;
-	}
-	ul {
-		list-style-type: none;
-		padding: 0;
-	}
-	li {
-		display: inline-block;
-		margin: 0 10px;
-	}
-	a {
-		color: #42b983;
-	}
-</style>
+<style scoped lang="scss"></style>
