@@ -13,7 +13,6 @@ module.exports = function(passport) {
             db.connect((err, result) => {if (err) return err})
             db.get().collection('users').findOne({username: username})
                 .then((user) => {
-                    console.log('er du dum eller hvad')
                     if (!user) {
                         return done(null, false, { error: 'User does not excist' });
                     }
@@ -22,7 +21,6 @@ module.exports = function(passport) {
                         return done(null, false, { error: 'The password is not correct' });
                     }
                     console.log("User is logged in");
-                    console.log(user);
                     return done(null, user);
                 })
                 .catch((err) => console.log(err));
