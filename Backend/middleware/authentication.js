@@ -24,7 +24,6 @@ module.exports = function (passport) {
 						return done(null, false, { error: 'The password is not correct' })
 					}
 					console.log('User is logged in')
-					console.log(user)
 					return done(null, user)
 				})
 				.catch(err => console.log(err))
@@ -32,7 +31,6 @@ module.exports = function (passport) {
 	)
 	// Give userID to cookie
 	passport.serializeUser((user, done) => {
-		console.log(user)
 		done(null, user._id)
 	})
 	// Deserialize user when loggin out
