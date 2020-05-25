@@ -5,7 +5,7 @@
         <h1 class="title is-2">Hovedkategorier</h1>
         <h2
           class="subtitle is-6"
-        >Tryk på en hovedkategori og tilvælg emner du ønsker at få nyheder om</h2>
+        >Tryk på en Hovedkategori og tilvælg emner du ønsker at få nyheder om</h2>
       </div>
     </div>
 
@@ -47,7 +47,7 @@
 			},
 
 			fetchCategories() {
-				fetch('http://localhost:3000/category')
+				fetch(process.env.VUE_APP_API_URL + 'category')
 					.then(response => response.json())
 					.then(response => {
 						this.categories = response.result

@@ -49,22 +49,18 @@ router.post('/', function (req, res, next) {
 	)
 })
 
-/* Iza prøver at lave login funktion  */
 // Authenticate the user when logging in
-router.post('/login', (req, res, next) => {
-	passport.authenticate('local', {
-		successRedirect: '/category',
-		failedRedirect: '/login',
-	})(req, res, next)
+router.post('/login', passport.authenticate('local', {}), (req, res) => {
+	res.json({
+		status: 'Success',
+		msg: "You're logged in",
+	})
 })
-
-// Renders dashboard if user is logged in
-router.get('/hovedkategori', userIsLoggedIn, async (req, res) => {})
 
 // Log out the user when pressing the log out link in the header
 router.get('/logout', (req, res) => {
 	req.logout()
-	res.redirect('/login')
+	res.status(200).json({ status: 'success', msg: "You're logged out" })
 })
 
 module.exports = router
