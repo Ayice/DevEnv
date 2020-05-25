@@ -42,7 +42,7 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button">
+              <a class="button" @click="logout">
                 <strong>Log ud</strong>
               </a>
             </div>
@@ -56,6 +56,22 @@
 <script>
 	export default {
 		name: 'Header',
+		methods: {
+			logout() {
+				console.log('logging out...')
+
+				fetch(process.env.VUE_APP_API_URL + 'users/logout')
+					.then(response => {
+						return response.json()
+					})
+					.then(response => {
+						console.log(response)
+					})
+					.then(() => {
+						this.$router.push('/')
+					})
+			},
+		},
 	}
 
 	document.addEventListener('DOMContentLoaded', () => {

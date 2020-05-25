@@ -47,7 +47,8 @@ module.exports = function (passport) {
 	// Insert the user into our req.session.passport
 	// So we can access this later when we want to find the logged in user
 	passport.serializeUser((user, done) => {
-		console.log('serializing user!', user)
+		console.log('serializing user!', user._id)
+
 		// Tell the session what to store in the session (user._id)
 		done(null, user._id)
 	})
@@ -56,7 +57,6 @@ module.exports = function (passport) {
 	// It will find the user we are logged in as.
 	passport.deserializeUser((id, done) => {
 		console.log('Deserializing user', id)
-
 		// Create connection to the db
 		db.connect((err, result) => {
 			if (err) return console.log(err)
@@ -68,7 +68,7 @@ module.exports = function (passport) {
 		db.get()
 			.collection('users')
 			.find({ _id: id }, (err, user) => {
-				if (err) return console.log(err)
+				if (err) return res.send(err)
 				console.log(user, 'deserializing found user')
 				done(err, user)
 			})

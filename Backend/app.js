@@ -8,7 +8,7 @@ const db = require('./db')
 const session = require('express-session')
 const isAuth = require('./middleware/userIsLoggedIn')
 const passport = require('passport')
-
+require('dotenv')
 db.connect(() => {
 	console.log('connected to this shit')
 })
@@ -22,7 +22,7 @@ app.use(
 		resave: false,
 		saveUninitialized: false,
 		expires: new Date(Date.now() + 3600000),
-		cookie: { secure: false, maxAge: 4 * 60 * 60 * 1000 },
+		cookie: { secure: false, maxAge: 3600000 },
 	})
 )
 
@@ -39,7 +39,13 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(cors())
+
+let corsOptions = {
+	origin: 'http://localhost:8080',
+	credentials: true,
+}
+
+app.use(cors(corsOptions))
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes

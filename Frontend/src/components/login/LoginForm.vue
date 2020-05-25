@@ -70,6 +70,7 @@
 			loginUser(data) {
 				fetch(process.env.VUE_APP_API_URL + 'users/login', {
 					method: 'POST',
+					credentials: 'include',
 					headers: {
 						'Content-Type': 'application/json',
 					},
