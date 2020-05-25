@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
 	collection
 		.find()
 		.toArray()
-		.then((result) => {
+		.then(result => {
 			res.send(result)
 			console.log(result)
 		})
@@ -22,39 +22,45 @@ router.get('/', function (req, res, next) {
 /* POST user to db */
 router.post('/', function (req, res, next) {
 	var collection = db.get().collection('users')
+	collection.insertOne(
+		{
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			address: req.body.address,
+			zipCode: req.body.zipCode,
+			city: req.body.city,
+			email: req.body.email,
+			username: req.body.username,
+			password: req.body.password,
+		},
+		(err, result) => {
+			if (err) {
+				res.status(500).json({
+					status: 'Error',
+					msg: 'There was a problem with the server',
+				})
+			} else {
+				res.status(200).json({
+					status: 'Success',
+					msg: 'User saved to db',
+				})
+			}
+		}
+	)
+})
 
-	collection.insertOne({ 
-		firstName: req.body.firstName,
-		lastName: req.body.lastName,
-		address: req.body.address,
-		zipCode: req.body.zipCode,
-		city: req.body.city,
-		email: req.body.email,
-		username: req.body.username,
-		password: req.body.password
-		}, (err, result) => {
-		if (err) throw err;
-		res.send('User saved to db');
-		console.log('User saved to db');
+// Authenticate the user when logging in
+router.post('/login', passport.authenticate('local', {}), (req, res) => {
+	res.json({
+		status: 'Success',
+		msg: "You're logged in",
 	})
 })
-
-/* Iza prøver at lave login funktion  */
-// Authenticate the user when logging in
-router.post('/login', (req, res, next) => {
-	passport.authenticate('local', {
-		successRedirect: '/category',
-		failedRedirect: '/login',
-	})(req, res, next)
-})
-
-// Renders dashboard if user is logged in
-router.get('/hovedkategori', userIsLoggedIn, async (req, res) => {})
 
 // Log out the user when pressing the log out link in the header
 router.get('/logout', (req, res) => {
 	req.logout()
-	res.redirect('/login')
+	res.status(200).json({ status: 'success', msg: "You're logged out" })
 })
 
 module.exports = router

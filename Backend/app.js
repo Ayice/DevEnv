@@ -5,7 +5,9 @@ var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 const cors = require('cors')
 const db = require('./db')
-
+const passport = require('passport')
+const session = require('express-session')
+const authChecker = require('./middleware/authentication')
 db.connect(() => {
 	console.log('connected to this shit')
 })
@@ -13,8 +15,6 @@ db.connect(() => {
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
 var categoryRouter = require('./routes/category')
-const passport = require('passport')
-const session = require('express-session')
 
 var app = express()
 
@@ -44,7 +44,7 @@ app.use(
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
-app.use('/category', categoryRouter)
+app.use('/category', authChecker, categoryRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="header navbar is-fixed-top">
+  <header class="header navbar">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <router-link class="navbar-item" to="/home">
@@ -50,7 +50,7 @@
         </div>
       </div>
     </nav>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -86,9 +86,12 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 	.header {
+		position: sticky;
+		top: 0;
 		background-color: #355a93;
+		height: 10vh;
+
 		.navbar {
-			width: 100%;
 			max-width: 1080px;
 			margin: 0 auto;
 			background-color: #355a93;
