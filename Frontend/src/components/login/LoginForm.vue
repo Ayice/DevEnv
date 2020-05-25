@@ -1,10 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div class="columns is-centered">
-    <form class="form-container column is-one-quarter box">
-      <Input />
-      <Input class />
-=======
   <section>
     <div class="columns is-centered is-mobile">
       <form action class="form-container is-10 column box">
@@ -14,7 +8,6 @@
             <input name="username" type="text" required placeholder="Username" class="input" />
           </div>
         </div>
->>>>>>> ab1f6e45920e368bb43a08acd21dc7e37e1b3033
 
         <div class="field">
           <label for="password">Password</label>

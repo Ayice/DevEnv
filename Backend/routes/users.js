@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
 	collection
 		.find()
 		.toArray()
-		.then((result) => {
+		.then(result => {
 			res.send(result)
 			console.log(result)
 		})

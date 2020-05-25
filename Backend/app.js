@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 const cors = require('cors')
 const db = require('./db')
+const passport = require('passport')
+const session = require('express-session')
 
 db.connect(() => {
 	console.log('connected to this shit')
@@ -13,8 +15,6 @@ db.connect(() => {
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
 var categoryRouter = require('./routes/category')
-const passport = require('passport')
-const session = require('express-session')
 
 var app = express()
 
