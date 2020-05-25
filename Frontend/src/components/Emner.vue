@@ -1,17 +1,20 @@
 <template>
-  <router-link :to="kategori._id" class="kategori" tag="button">{{kategori.title}}</router-link>
+  <div class="emne">
+    {{emne.title}}
+    <input type="radio" name="radiobutton" />
+  </div>
 </template>
 
 <script>
 	export default {
-		name: 'Hovedkategori',
+		name: 'Emner',
 		props: {
-			kategori: {
+			emne: {
 				title: {
 					type: String,
 					required: true,
 				},
-				link: {
+				id: {
 					type: String,
 					required: true,
 				},
@@ -21,17 +24,13 @@
 </script>
 
 <style lang="scss">
-	.kategori {
-		cursor: pointer;
-		font-weight: 600;
+	.emne {
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		height: 100px;
+		justify-content: space-between;
+		padding: 0.5em;
 		background-color: rgba(113, 184, 188, 0.452);
 		color: #ffffff;
-		border: none;
 		width: 100%;
-		font-size: 1em;
 	}
 </style>

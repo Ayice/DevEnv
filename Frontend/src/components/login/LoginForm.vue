@@ -1,13 +1,42 @@
 <template>
   <section>
     <div class="columns is-centered is-mobile">
-      <form action class="form-container is-10 column box">
-        <Input />
-        <Input class />
+      <form
+        method="post"
+        class="form-container is-10 column box"
+        @submit.prevent="loginUser(login)"
+      >
+        <div class="field">
+          <label for="username">Username</label>
+          <div class="control">
+            <input
+              name="username"
+              type="text"
+              required
+              placeholder="Username"
+              class="input"
+              v-model="login.username"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="control">
+            <input
+              name="password"
+              type="password"
+              required
+              placeholder="Password"
+              class="input"
+              v-model="login.password"
+            />
+          </div>
+        </div>
 
         <div class="field is-grouped is-grouped-centered">
           <div class="control">
-            <Button btntext="Log Ind" class="is-primary is-normal" />
+            <button to="/login" class="button is-primary is-normal">Login</button>
           </div>
           <div class="control"></div>
         </div>
@@ -16,27 +45,44 @@
 
     <div class="login-options columns is-mobile is-centered">
       <div class="column is-5">
-        <Button btntext="Opret Bruger" class="is-primary" />
+        <router-link to="/signup" class="button is-primary">Opret Bruger</router-link>
       </div>
 
       <div class="column is-5">
-        <Button btntext="Fortsæt Som Gæst" class="is-primary is-light" />
+        <button class="button is-primary is-light">Fortsæt Som Gæst</button>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-	import Button from '@/components/login/Button.vue'
-	import Input from '@/components/login/Input.vue'
-
 	export default {
 		name: 'LoginForm',
-		components: {
-			Button: Button,
-			Input: Input,
+		data() {
+			return {
+				login: {
+					username: null,
+					password: null,
+				},
+			}
 		},
-		props: {},
+		methods: {
+			loginUser(data) {
+				fetch(process.env.VUE_APP_API_URL + 'users/login', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(data),
+				})
+					.then(data => {
+						console.log('Request succeeded with JSON response', data)
+					})
+					.catch(error => {
+						console.log('Request failed', error)
+					})
+			},
+		},
 	}
 </script>
 
