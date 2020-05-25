@@ -7,6 +7,7 @@ const cors = require('cors')
 const db = require('./db')
 const session = require('express-session')
 const isAuth = require('./middleware/userIsLoggedIn')
+const passport = require('passport')
 
 db.connect(() => {
 	console.log('connected to this shit')
@@ -14,10 +15,20 @@ db.connect(() => {
 
 var app = express()
 
-const passport = require('passport')
+//Initialize session with some options
+app.use(
+	session({
+		secret: 'secret',
+		resave: false,
+		saveUninitialized: false,
+		expires: new Date(Date.now() + 3600000),
+		cookie: { secure: false, maxAge: 4 * 60 * 60 * 1000 },
+	})
+)
+
+require('./middleware/authentication')(passport)
 app.use(passport.initialize())
 app.use(passport.session())
-require('./middleware/authentication')(passport)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -31,16 +42,6 @@ app.use(cookieParser())
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')))
 
-//Initialize session with some options
-app.use(
-	session({
-		secret: 'secret',
-		resave: false,
-		saveUninitialized: false,
-		expires: new Date(Date.now() + 3600000),
-	})
-)
-
 // Routes
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
@@ -48,7 +49,7 @@ var categoryRouter = require('./routes/category')
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
-app.use('/category', categoryRouter)
+app.use('/category', isAuth, categoryRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

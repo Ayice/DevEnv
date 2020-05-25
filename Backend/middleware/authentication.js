@@ -1,8 +1,7 @@
 var db = require('../db')
 var mongodb = require('mongodb')
-// const LocalStrategy = require('passport-local').Strategy;
+
 const LocalStrategy = require('passport-local').Strategy
-// const User = db.get().collection('users');
 
 module.exports = function (passport) {
 	passport.use(
@@ -15,6 +14,7 @@ module.exports = function (passport) {
 				.collection('users')
 				.findOne({ username: username })
 				.then(user => {
+					console.log(user, 'found user in LocalStrategy')
 					if (!user) {
 						return done(null, false, { error: 'User does not excist' })
 					}
@@ -40,11 +40,14 @@ module.exports = function (passport) {
 	passport.deserializeUser((id, done) => {
 		console.log('Deserializing user', id)
 		db.connect((err, result) => {
-			if (err) return err
+			if (err) return console.log(err)
+			console.log('desirialize connected to db')
 		})
 		db.get()
 			.collection('users')
 			.find({ _id: id }, (err, user) => {
+				if (err) return console.log(err)
+				console.log(user, 'deserializing found user')
 				done(err, user)
 			})
 	})

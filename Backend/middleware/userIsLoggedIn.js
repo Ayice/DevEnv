@@ -1,8 +1,10 @@
 module.exports = (req, res, next) => {
+	console.log(req.session, 'session')
+	console.log(req.user, 'user')
+	console.log(req.isAuthenticated(), 'isAuth')
 	if (req.isAuthenticated()) {
 		return next()
 	} else {
-		console.log(req._passport)
 		res.json({
 			status: 'Error',
 			msg: 'not authorized',
