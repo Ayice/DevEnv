@@ -48,7 +48,7 @@ var categoryRouter = require('./routes/category')
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
-app.use('/category', isAuth, categoryRouter)
+app.use('/category', categoryRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
