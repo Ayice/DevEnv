@@ -34,10 +34,10 @@
 	}
 </script>
 <style lang="scss">
-	.app {
-		min-height: 100vh;
-	}
+
 	#content-wrap {
+		padding: 0 10px;
+		padding-top: 2.5rem;
 		padding-bottom: 2.5rem;
 	}
 </style>
