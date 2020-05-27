@@ -12,5 +12,7 @@ services:
   client:
     build: Frontend
     restart: always
+    volumes:
+      - ./Frontend/src/*
     ports:
       - 8080:8080
