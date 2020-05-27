@@ -59,6 +59,7 @@ router.post('/login', passport.authenticate('local', {}), (req, res) => {
 
 // Log out the user when pressing the log out link in the header
 router.get('/logout', (req, res) => {
+	console.log(req.user, 'req.user here')
 	req.logout()
 	res.status(200).json({ status: 'success', msg: "You're logged out" })
 })

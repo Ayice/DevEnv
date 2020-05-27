@@ -47,7 +47,9 @@
 			},
 
 			fetchCategories() {
-				fetch(process.env.VUE_APP_API_URL + 'category')
+				fetch(process.env.VUE_APP_API_URL + 'category', {
+					credentials: 'include',
+				})
 					.then(response => response.json())
 					.then(response => {
 						this.categories = response.result
