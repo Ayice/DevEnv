@@ -13,12 +13,9 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 	.footer {
-		position: absolute;
-		bottom: 0;
-		margin-top: auto;
+		height: 40px;
 		background-color: #355a93;
 		width: 100%;
-		height: 2.5rem;
 		color: #fff;
 		display: flex;
 		align-content: center;

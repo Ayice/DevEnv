@@ -109,6 +109,7 @@
         margin: 0 auto;
         background-color: #355a93;
         color: #fff;
+		min-height: 55px;
         
 		.navbar-menu {
 			justify-content: center;
