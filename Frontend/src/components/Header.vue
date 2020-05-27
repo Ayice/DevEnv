@@ -1,5 +1,5 @@
 <template>
-  <header class="header navbar">
+  <header class="header navbar is-fixed-top">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <router-link class="navbar-item" to="/home">
@@ -35,7 +35,7 @@
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item">Dashboard</a>
-          <router-link to="/hovedkategorier">Hovedkategorier</router-link>
+          <router-link class="navbar-item" to="/hovedkategorier">Hovedkategorier</router-link>
           <a class="navbar-item">Min konto</a>
         </div>
 
