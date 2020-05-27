@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import SignUpForm from '../components/SignUpForm.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +10,11 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home,
+    },
+    {
+        path: '/signup',
+        name: 'Signup',
+        component: SignUpForm
     },
     {
         path: '/about',
@@ -28,6 +34,14 @@ const routes = [
                 /* webpackChunkName: "hovedkategoriContainer" */ '../views/HovedkategoriContainer.vue'
             ),
     },
+    {
+        path: '/hovedkategorier/emne/',
+        name: 'EmnerContainer',
+        component: () =>
+            import(
+                /* webpackChunkName: "hovedkategoriContainer" */ '../views/EmnerContainer.vue'
+            ),
+    }
 ]
 
 const router = new VueRouter({
