@@ -101,7 +101,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-<<<<<<< HEAD
 .header {
     background-color: #355a93;
     .navbar {
@@ -145,48 +144,3 @@
     }
 }
 </style>
-=======
-	.header {
-		position: sticky;
-		top: 0;
-		background-color: #355a93;
-		height: 10vh;
-
-		.navbar {
-			max-width: 1080px;
-			margin: 0 auto;
-			background-color: #355a93;
-			color: #fff;
-
-			a {
-				color: #fff;
-
-				&:hover {
-					background-color: #355a93;
-				}
-			}
-			a.button {
-				color: #355a93;
-			}
-
-			span {
-				padding-left: 10px;
-			}
-
-			@media screen and (max-width: 1023px) {
-				.navbar-menu {
-					background-color: #f5f5f5;
-					a {
-						color: #355a93;
-					}
-
-					.button {
-						background-color: #355a93;
-						color: #fff;
-					}
-				}
-			}
-		}
-	}
-</style>
->>>>>>> 4dbd7ff8d7c04e082211550246ef5a097b8d4873
