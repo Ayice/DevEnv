@@ -34,10 +34,9 @@
 	}
 </script>
 <style lang="scss">
-	.app {
-		min-height: 100vh;
-	}
 	#content-wrap {
-		padding-bottom: 2.5rem;
+			min-height: calc(100vh - 40px);
+		padding: 0 10px;
+		padding-top: 55px;
 	}
 </style>

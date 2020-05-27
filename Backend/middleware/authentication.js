@@ -30,7 +30,6 @@ module.exports = function (passport) {
 
 					// If we get here, the login datas are correct and we can now serialize the user
 					console.log('User is logged in')
-					console.log(user)
 					return done(null, user)
 				})
 				.catch(err => {

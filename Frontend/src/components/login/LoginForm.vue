@@ -3,7 +3,7 @@
     <div class="columns is-centered is-mobile">
       <form
         method="post"
-        class="form-container is-10 column box"
+        class="form-container is-12 column box"
         @submit.prevent="loginUser(login)"
       >
         <div class="field">
@@ -43,12 +43,12 @@
       </form>
     </div>
 
-    <div class="login-options columns is-mobile is-centered">
-      <div class="column is-5">
+    <div class="login-options columns is-mobile">
+      <div class="">
         <router-link to="/signup" class="button is-primary">Opret Bruger</router-link>
       </div>
 
-      <div class="column is-5">
+      <div class="">
         <button class="button is-primary is-light">Fortsæt Som Gæst</button>
       </div>
     </div>
@@ -88,4 +88,9 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.login-options {
+  padding-top: 20px;
+  justify-content: space-between;
+}
+</style>

@@ -1,8 +1,8 @@
 <template>
-  <header class="header navbar">
+  <header class="header navbar is-fixed-top">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <router-link class="navbar-item" to="/home">
+        <router-link class="navbar-item" to="/">
           <svg
             width="25"
             height="25"
@@ -35,7 +35,7 @@
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item">Dashboard</a>
-          <router-link to="/hovedkategorier">Hovedkategorier</router-link>
+          <router-link class="navbar-item" to="/hovedkategorier">Hovedkategorier</router-link>
           <a class="navbar-item">Min konto</a>
         </div>
 
@@ -101,46 +101,47 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-	.header {
-		position: sticky;
-		top: 0;
-		background-color: #355a93;
-		height: 10vh;
-
-		.navbar {
-			max-width: 1080px;
-			margin: 0 auto;
-			background-color: #355a93;
-			color: #fff;
-
-			a {
-				color: #fff;
-
-				&:hover {
-					background-color: #355a93;
-				}
-			}
-			a.button {
-				color: #355a93;
+.header {
+    background-color: #355a93;
+    .navbar {
+        width: 100%;
+        max-width: 1080px;
+        margin: 0 auto;
+        background-color: #355a93;
+        color: #fff;
+		min-height: 55px;
+        
+		.navbar-menu {
+			justify-content: center;
 			}
 
-			span {
-				padding-left: 10px;
-			}
+        a {
+            color: #fff;
+            
+            &:hover{ 
+                background-color: #355a93;}
+        }
+        a.button {
+            color: #355a93;
+        }
 
-			@media screen and (max-width: 1023px) {
-				.navbar-menu {
-					background-color: #f5f5f5;
-					a {
-						color: #355a93;
-					}
+        span {
+            padding-left: 10px;
+        }
 
-					.button {
-						background-color: #355a93;
-						color: #fff;
-					}
-				}
-			}
-		}
-	}
+        @media screen and (max-width: 1023px) {
+            .navbar-menu {
+                background-color: #f5f5f5;
+                a {
+                    color: #355a93;
+                }
+
+                .button {
+                    background-color: #355a93;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
 </style>
