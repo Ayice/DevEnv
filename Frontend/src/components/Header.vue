@@ -95,6 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
         background-color: #355a93;
         color: #fff;
         
+		.navbar-menu {
+			justify-content: center;
+			}
+
         a {
             color: #fff;
             
