@@ -35,7 +35,7 @@
 </script>
 <style lang="scss">
 	#content-wrap {
-			min-height: calc(100vh - 40px);
+		min-height: calc(100vh - 40px);
 		padding: 0 10px;
 		padding-top: 55px;
 	}

@@ -19,7 +19,6 @@
 
 <script>
 	import Hovedkategori from '@/components/Hovedkategori'
-
 	export default {
 		name: 'HovedkategoriContainer',
 		components: {

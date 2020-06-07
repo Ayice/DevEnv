@@ -1,7 +1,7 @@
 <template>
-  <footer class="footer">
-    <span>© 2020 All Rights Reserved | Reactive Angulers</span>
-  </footer>
+	<footer class="footer">
+		<span>© 2020 All Rights Reserved | Reactive Angulers</span>
+	</footer>
 </template>
 
 <script>
@@ -21,6 +21,7 @@
 		align-content: center;
 		justify-content: center;
 		padding: 0;
+
 		span {
 			padding-top: 0.5rem;
 		}

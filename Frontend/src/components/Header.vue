@@ -16,7 +16,7 @@
             />
           </svg>
 
-          <span>COVID-19 INFORMATIONSCENTER</span>
+          <span class="navbar-brand_text">COVID-19 INFORMATIONSCENTER</span>
         </router-link>
 
         <a
@@ -101,47 +101,59 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.header {
-    background-color: #355a93;
-    .navbar {
-        width: 100%;
-        max-width: 1080px;
-        margin: 0 auto;
-        background-color: #355a93;
-        color: #fff;
-		min-height: 55px;
-        
-		.navbar-menu {
-			justify-content: center;
+	@import '../assets/variables.scss';
+
+	.header {
+		background-color: #355a93;
+
+		.navbar {
+			width: 100%;
+			max-width: 1080px;
+			margin: 0 auto;
+			background-color: #355a93;
+			color: #fff;
+			min-height: 55px;
+
+			&-menu {
+				justify-content: center;
+
+				@include until($desktop) {
+					background-color: #f5f5f5;
+				}
 			}
 
-        a {
-            color: #fff;
-            
-            &:hover{ 
-                background-color: #355a93;}
-        }
-        a.button {
-            color: #355a93;
-        }
+			&-item {
+				color: #fff;
 
-        span {
-            padding-left: 10px;
-        }
+				&:hover {
+					color: #355a93;
+				}
 
-        @media screen and (max-width: 1023px) {
-            .navbar-menu {
-                background-color: #f5f5f5;
-                a {
-                    color: #355a93;
-                }
+				@include until($desktop) {
+					color: #355a93;
+				}
 
-                .button {
-                    background-color: #355a93;
-                    color: #fff;
-                }
-            }
-        }
-    }
-}
+				& .button {
+					color: #355a93;
+
+					@include until($desktop) {
+						background-color: #355a93;
+						color: #fff;
+					}
+				}
+
+				.navbar-brand_text {
+					padding-left: 10px;
+
+					@include until($desktop) {
+						color: #fff;
+					}
+				}
+			}
+
+			&-burger {
+				color: #fff;
+			}
+		}
+	}
 </style>
